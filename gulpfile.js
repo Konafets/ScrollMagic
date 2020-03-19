@@ -30,7 +30,7 @@ var
 	log = 				require('./dev/build/logger'),
 	size = 				require('./dev/build/filesize'),
 	jsdoc = 			require('./dev/build/jsdoc-generator'),
-	
+
 	// config files
 	pluginInfo =	require('./dev/src/plugins.json'),
 	config = 			require('./dev/build/config.json'); // config
@@ -337,7 +337,7 @@ var generateDocs = gulp.series(cleanDocs, copyStaticDocfiles, compileDocs);
 var runTests = gulp.series(buildAll, runKarmaTests);
 
 // add doc compilation to default sequence, if -d parameter is present
-var defaultSequence = [syncVersion, sourceErrorcheck, buildAll];
+var defaultSequence = [syncVersion, buildAll];
 if (options.dodocs) defaultSequence.push(generateDocs);
 
 // expose tasks
